@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Welcome to Inar Academy, where learning meets innovation.">
+    <meta name="author" content="Inar Academy">
+    <title>Welcome to Inar Academy</title>
+
+    <!-- Favicon and Manifest -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- External Styles and Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
+    <!-- Custom Styles -->
+    <style>
+        /* General Layout */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1b2735, #202c36);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 90%;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Logo Styles */
+        .logo {
+            width: 150px;
+            height: auto;
+            margin: 20px auto;
+        }
+
+        /* Header and Text */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: #e3f2fd;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 15px 0 30px;
+            color: #90caf9;
+            line-height: 1.6;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #202c36;
+            background: linear-gradient(to right, #00ff85, #00e075);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #b0bec5;
+        }
+
+        footer a {
+            color: #00ff85;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Logo Section -->
+    <img src="https://inar-academy.netlify.app/static/media/inar-academy-logo-02.df156e67ad5197e2685b.png" alt="Inar Academy Logo" class="logo">
+
+    <!-- Header Section -->
+    <h1>
+        Welcome,
+        <span th:text="${user != 'User' ? user : 'Esteemed Guest'}">Esteemed Guest</span>!
+    </h1>
+    <p>Empowering the next generation of innovators and thinkers. Join us today to explore endless opportunities!</p>
+
+    <!-- Call-to-Action Button -->
+    <a href="/get-started" class="btn">Get Started</a>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; <span id="currentYear"></span> Inar Academy. All rights reserved.
+        <a href="/privacy-policy">Privacy Policy</a> |
+        <a href="/terms">Terms of Service</a>
+    </footer>
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Dynamically update the year in the footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
