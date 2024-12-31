@@ -127,8 +127,7 @@
 
     <!-- Header Section -->
     <h1>
-        Welcome,
-        <span th:text="${user != 'User' ? user : 'Esteemed Guest'}">Esteemed Guest</span>!
+        <span th:text="${user != 'User' ? 'Welcome, ' + user : 'Welcome to Inar Academy'}"></span>
     </h1>
     <p>Empowering the next generation of innovators and thinkers. Join us today to explore endless opportunities!</p>
 
