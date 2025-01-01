@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
 
     @GetMapping("/login")
-    public String sayHello(@RequestParam(value = "name", defaultValue = "User") String name, Model model) {
+    public String showLoginPage(@RequestParam(value = "name", defaultValue = "User") String name, Model model) {
         model.addAttribute("user", name);
         return "login";
     }
+
 }

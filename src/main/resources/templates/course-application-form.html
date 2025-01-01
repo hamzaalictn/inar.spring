@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Application Form</title>
+    <style>
+        /* General Body Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #1b2735, #202c36);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container Styles */
+        .container {
+            background-color: #1e2b3c;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Header */
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #b0c4de;
+            margin-bottom: 30px;
+        }
+
+        /* Form Section */
+        .form-container {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            color: #90a4ae;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid #283645;
+            border-radius: 8px;
+            background: #1e293b;
+            color: #ffffff;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #00ff85;
+            background: #283645;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 30px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Submit Button */
+        .btn {
+            background: linear-gradient(45deg, #00ff85, #00e075);
+            color: #202c36;
+            font-size: 1rem;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 255, 133, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Header Section -->
+    <h1>Course Application</h1>
+    <p>Fill in the form below to apply for your desired course.</p>
+
+    <!-- Form Section -->
+    <div class="form-container">
+        <form action="/submit-application" method="POST">
+            <!-- First Name and Last Name -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first_name" placeholder="Enter your first name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last_name" placeholder="Enter your last name" required>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+            </div>
+
+            <!-- Phone Number (Optional) -->
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional)</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+
+            <!-- Course Selection -->
+            <div class="form-group">
+                <label for="course">Select Course</label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>Choose your course</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="data-science">Data Science</option>
+                    <option value="ui-ux">UI/UX Design</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="sdet">Software Development Engineer in Test Bootcamp</option>
+                </select>
+            </div>
+
+            <!-- Tell Us About Yourself -->
+            <div class="form-group">
+                <label for="intent">Tell Us About Yourself</label>
+                <textarea id="intent" name="intent" placeholder="Why do you want to join this course?" required></textarea>
+            </div>
+
+            <!-- Questionnaire Section -->
+            <div class="form-group">
+                <label for="experience">Do you have any prior experience in this field? (Optional)</label>
+                <textarea id="experience" name="experience" placeholder="Briefly describe your experience, if any."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hear-about">How did you hear about us?</label>
+                <select id="hear-about" name="hear_about" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="social-media">Social Media</option>
+                    <option value="friend">Friend or Family</option>
+                    <option value="online-ad">Online Advertisement</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
