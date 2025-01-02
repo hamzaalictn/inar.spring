@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.4.1'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'com.diffplug.spotless' version '6.21.0'
 }
 
 group = 'com.inar'
@@ -18,13 +19,38 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// Spring Boot Starters
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'  // Thymeleaf
+	implementation 'org.springframework.boot:spring-boot-starter-web'        // Web and REST API
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'   // JPA and Hibernate
+	implementation 'org.springframework.boot:spring-boot-starter-validation' // Bean Validation
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// Database
+	runtimeOnly 'com.h2database:h2'           // H2 Database for development
+	runtimeOnly 'org.postgresql:postgresql'   // PostgreSQL driver (optional for production)
+
+	// Testing
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'   // Testing framework
+	testImplementation 'org.junit.jupiter:junit-jupiter'                     // JUnit 5
+	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.27.1'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testImplementation 'org.mockito:mockito-core'                            // Mockito for mocking
+
+	// Utility Libraries
+	implementation 'org.apache.commons:commons-lang3'        // Apache Commons Lang
+	implementation 'com.fasterxml.jackson.core:jackson-databind' // JSON processing
 }
 
-
-tasks.named('test',Test) {
+tasks.named('test', Test) {
 	useJUnitPlatform()
+}
+
+spotless {
+	java {
+		googleJavaFormat('1.17.0')
+		importOrder()
+		removeUnusedImports()
+		target '**/*.java'
+	}
 }
